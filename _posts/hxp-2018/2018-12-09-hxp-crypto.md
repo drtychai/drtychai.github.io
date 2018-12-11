@@ -1,7 +1,7 @@
 ---
 layout: post
 title: daring
-category: hxp-2018 (crypto)
+category: hxp-2018
 ---
 # Description
 I could only play hxpCTF during my downtime at Hushcon, but found the challenges extremely engaging and enjoyable.
