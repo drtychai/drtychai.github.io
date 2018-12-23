@@ -31,9 +31,9 @@ open('aes.enc', 'wb').write(AES.new(key, AES.MODE_CTR, counter=Counter.new(128))
 Immediately we notice that the flag is encrypted in two independent ways; one via AES CTR and the other via RSA with null byte padding.
 
 Analyzing the script more carefully revealed both the use of weak padding and a small public key exponent. More specifically:
-&nbsp;&nbsp;&nbsp;&nbsp; 1. The flag is padded with a null byte,`\x00` to make the plaintext 128 bytes.
-&nbsp;&nbsp;&nbsp;&nbsp; 2. The padded flag is then encrypted with a small public key exponent, `e=3`.
-&nbsp;&nbsp;&nbsp;&nbsp; 3.The flag is also encrypted vis AES CTR. Recall: CTR mode requires the ciphertext to have the exact same size as the plaintext.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; 1. The flag is padded with a null byte,`\x00` to make the plaintext 128 bytes.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; 2. The padded flag is then encrypted with a small public key exponent, `e=3`.
+<br>&nbsp;&nbsp;&nbsp;&nbsp; 3.The flag is also encrypted vis AES CTR. Recall: CTR mode requires the ciphertext to have the exact same size as the plaintext.
 
 Due to `1`, we notice that we cannot perform an attack on the small public key exponent. This is a common attack and only works if the cube of the plaintext is strictly less than the modulus. With
 
