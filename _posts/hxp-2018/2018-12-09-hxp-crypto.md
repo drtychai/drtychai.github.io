@@ -84,3 +84,7 @@ for i in range(1000):
         print(pt.to_bytes(43, 'big'))
         break
 ```
+
+```bash
+hxp{DARINGPADS_1s_4n_4n4gr4m_0f_RSAPADDING}
+```
