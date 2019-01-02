@@ -137,7 +137,7 @@ Site Map:
 - /create (POST)
   - `multipart/form-data` is sent via POST (2 parts)
     - "filename"
-	- "content"
+    - "content"
 - /read (GET)
   - /read?filename=testfile (GET)
 - /search (GET)
@@ -146,7 +146,7 @@ Site Map:
 Interesting Headers:
 - POST /create
   - `xsrf: 1`
-  - as per JS code found on / page
+  - as per JS code found in source code of / page
 
 Places for User Input:
 - /signup
@@ -159,6 +159,68 @@ Places for User Input:
   - allows any input to query string param
 ```
 
+Two segments of JS stand out as important. The code for the `/create` page:
+```JS
+<script>
+  function doSubmit(e) {
+    e.preventDefault();
+    document.getElementById('submit-button').disabled = true;
+    let filename = document.getElementById('filename').value;
+    const data = new FormData(e.target);
+    fetch('/create', {method: 'POST', body: data, headers: {XSRF: '1'}}).then(r=>{
+      document.getElementById('submit-button').disabled = false;
+      if (r.ok) {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        li.appendChild(a);
+        a.innerText = filename;
+        a.href = `/read?filename=${filename}`;
+        document.getElementById('file-list').appendChild(li);
+      } else {
+        console.log('error creating file');
+      }
+    }).catch((e)=>{
+      console.log('error creating file '+e);
+      document.getElementById('submit-button').disabled = false;
+    });
+    return false;
+  }
+
+  var form = document.getElementById('create-form');
+  form.addEventListener("submit", doSubmit);
+</script>
+```
+
+and the code for the `/search` function:
+```JS
+<script>
+  (()=>{
+    for (let pre of document.getElementsByTagName('pre')) {
+      let text = pre.innerHTML;
+      let q = 'content';
+      let idx = text.indexOf(q);
+      pre.innerHTML = `${text.substr(0, idx)}<mark>${q}</mark>${text.substr(idx+q.length)}`;
+    }
+  })();
+</script>
+```
+both found in the HTML source.
+
 ## Our Approach
+With all our enumeration complete, we came up with the following plan:
+1. Make admin visit a page on a VPS
+2. Do CSRF to upload XSS file
+3. Redirect to search page
+4. Profit
+
+We were able to successfully create a XSS payload by hex encoding and uploading the following:
+
+```HTML
+<img src=x onerror=alert(document.cookie)>
+```
+![xss](https://drtychai.github.io/assets/img/35c3/filemanager-xss.png)
+
+The one caveat of our plan - we couldn't find a way around was the `XSRF : 1` HTTP Header in the POST request to `/create`.
+
 
 ## Solution
