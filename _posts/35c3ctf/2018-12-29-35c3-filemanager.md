@@ -13,6 +13,99 @@ Note: This post is still in progress. Sorry for the delay!
 >Check out my web-based filemanager running at https://filemanager.appspot.com.  
 >The admin is using it to store a flag, can you get it? You can reach the admin's chrome-headless at: nc 35.246.157.192 1
 
+Before diving into the webapp, let's make sure we understand everything we're given.
+- There's a "filemanager" application hosted at `https://filemanager.appspot.com`.
+- We also have access to a headless chrome browser that retains the admins session.
+
+
+## Admin's Headless Chrome
+Headless Chrome is a way to run a Chrome browser without the full browser UI. Let's connect to the instance and see what we can do with it.
+
+```bash
+$ nc 35.246.157.192 1
+Please solve a proof-of work with difficulty 22 and prefix 96bb using https://www.npmjs.com/package/proof-of-work
+```
+
+Immediately upon connection, we are required to solve a proof-of-work. These are typically in place to deter DoS, similar to a captcha. It appeared that we needed to solve a different proof-of-work for every connection made, so we automated it.
+
+```python
+#!/usr/bin/env python2
+from pwn import *
+import re
+
+HOST = "35.246.157.192"
+PORT = "1"
+
+def proof_of_work(difficulty, prefix):
+    log.info("Solving proof-of-work...")
+    solver = process(["node", "./solver.js", difficulty, prefix])
+    p_of_w = solver.recvline().strip()
+    solver.close()
+    return p_of_w
+
+def exploit(r):
+    # Get the challenge difficulty and prefix
+    challenge = r.recvline()
+    matches = re.match(".+ difficulty (\d+) and prefix (.+) using", challenge)
+    difficulty, prefix = matches.groups()
+    log.info("Difficulty : {}, Prefix : {}".format(difficulty, prefix))
+
+    # Solve proof-of-work and start interactive shell
+    p_of_w = proof_of_work(difficulty, prefix)
+    r.sendline(p_of_w)
+    r.interactive()
+    return
+
+if __name__ == "__main__":
+    r = remote(HOST,PORT)
+    exploit(r)
+```
+
+```js
+// solver.js
+const pow = require('proof-of-work');
+const solver = new pow.Solver();
+args = process.argv
+var complexity = Number(args[2])
+
+const prefix = Buffer.from(args[3], 'hex');
+const nonce = solver.solve(complexity, /* optional */ prefix);
+console.log(nonce.toString('hex'));
+```
+
+
+```bash
+$ ./xpl.py
+[+] Opening connection to 35.246.157.192 on port 1: Done
+[*] Difficulty : 22, Prefix : 96bb
+[*] Solving proof-of-work...
+[+] Starting local process '/usr/local/bin/node': pid 6681
+[*] Stopped process '/usr/local/bin/node' (pid 6681)
+[*] Switching to interactive mode
+Proof-of-work verified.
+Please send me a URL to open.
+$
+```
+
+Let's see what happens if we try to connect to our VPS.
+
+```bash
+$ nc -lvp 8080
+Listening on [0.0.0.0] (family 0, port 1337)
+Connection from 158.83.234.35.bc.googleusercontent.com 50606 received!
+GET / HTTP/1.1
+Host: 18.216.16.73:8080
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/72.0.3617.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+```
+
+Great! So now we know that _any_ URL can be fed to the instance and the we have the User-Agent.
+
+
+## WebApp
 Upon visiting the webpage, we are redirected to a signup page.  
 ![signup](https://drtychai.github.io/assets/img/35c3/filemanager-signup.png)
 
@@ -29,7 +122,43 @@ Visiting this file:
 It looks like the file is just being displayed directly back to us, but wait:  
 ![sourcecode](https://drtychai.github.io/assets/img/35c3/filemanager-read-sourcecode.png)
 
-Our content is within `<pre>` tags.
+Our content is within `<pre>` tags. Let's pause for a moment and create a site map.
 
+```
+Backend:
+- Server : Google Frontend (GCP App)
+- Language : HTML, JS
+
+WebApp Description:
+- The app is a file managing system. One can upload files via form data, read their own files, and search via the content of their own files.
+
+Site Map:
+- /signup (GET/POST)
+- /create (POST)
+  - `multipart/form-data` is sent via POST (2 parts)
+    - "filename"
+	- "content"
+- /read (GET)
+  - /read?filename=testfile (GET)
+- /search (GET)
+  - /search?q=test (GET)
+
+Interesting Headers:
+- POST /create
+  - `xsrf: 1`
+  - as per JS code found on / page
+
+Places for User Input:
+- /signup
+  - username input only allows lowercase ascii characters
+- /create
+  - form-data allows any input (including JS code)
+- /read
+  - allows any input to query string param
+- /search
+  - allows any input to query string param
+```
+
+## Our Approach
 
 ## Solution
