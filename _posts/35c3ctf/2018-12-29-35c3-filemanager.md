@@ -107,19 +107,24 @@ Great! So now we know that _any_ URL can be fed to the instance and we have the 
 
 ## WebApp
 Upon visiting the webpage, we are redirected to a signup page.  
+
 ![signup](https://drtychai.github.io/assets/img/35c3/filemanager-signup.png)
 
 By creating a user, we are directed to the user homepage.   
 Note: it appears user's access controls are handled by a session cookie.  
+
 ![home](https://drtychai.github.io/assets/img/35c3/filemanager-home.png)
 
 Let's create a file, paying close attentions to the how the request is sent to the server and how it's displayed back to us.  
+
 ![home2](https://drtychai.github.io/assets/img/35c3/filemanager-home-with-file.png)
 
 Visiting this file:  
+
 ![readfile](https://drtychai.github.io/assets/img/35c3/filemanager-file-contents.png)
 
 It looks like the file is just being displayed directly back to us, but wait:  
+
 ![sourcecode](https://drtychai.github.io/assets/img/35c3/filemanager-read-sourcecode.png)
 
 Our content is within `<pre>` tags. Let's pause for a moment and create a site map.
@@ -160,8 +165,7 @@ Places for User Input:
 ```
 
 Two segments of JS stand out as important. The code for the `/create` page:
-```JS
-<script>
+```js
   function doSubmit(e) {
     e.preventDefault();
     document.getElementById('submit-button').disabled = true;
@@ -188,11 +192,10 @@ Two segments of JS stand out as important. The code for the `/create` page:
 
   var form = document.getElementById('create-form');
   form.addEventListener("submit", doSubmit);
-</script>
 ```
 
 and the code for the `/search` function:
-```JS
+```js
 <script>
   (()=>{
     for (let pre of document.getElementsByTagName('pre')) {
@@ -215,9 +218,10 @@ With all our enumeration complete, we came up with the following plan:
 
 We were able to successfully find a stored self-XXS by hex encoding and uploading the following:
 
-```HTML
+```html
 <img src=x onerror=alert(document.cookie)>
-```
+```  
+
 ![xss](https://drtychai.github.io/assets/img/35c3/filemanager-xss.png)
 
 The one caveat of our plan - we couldn't find a way around was the `XSRF : 1` HTTP Header in the POST request to `/create`.
