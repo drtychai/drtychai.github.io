@@ -102,7 +102,7 @@ Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/a
 Accept-Encoding: gzip, deflate
 ```
 
-Great! So now we know that _any_ URL can be fed to the instance and the we have the User-Agent.
+Great! So now we know that _any_ URL can be fed to the instance and we have the User-Agent.
 
 
 ## WebApp
