@@ -1,6 +1,6 @@
 ---
 layout: post
-title: FileManager
+title: filemanager
 category: 35c3ctf
 ---
 
@@ -9,25 +9,25 @@ We'll be doing a post-mortem for this challenge. Unfortunately, we weren't able 
 
 Note: This post is still in progress. Sorry for the delay!
 
-# FileManager
+# filemanager
 >Check out my web-based filemanager running at https://filemanager.appspot.com.  
 >The admin is using it to store a flag, can you get it? You can reach the admin's chrome-headless at: nc 35.246.157.192 1
 
 Upon visiting the webpage, we are redirected to a signup page.  
-![signup](/Users/justin/website/drtychai.github.io/assets/img/35c3/filemanager-signup.png)
+![signup](https://drtychai.github.io/assets/img/35c3/filemanager-signup.png)
 
 By creating a user, we are directed to the user homepage.   
 Note: it appears user's access controls are handled by a session cookie.  
-![signup](/Users/justin/website/drtychai.github.io/assets/img/35c3/filemanager-home.png)
+![home](https://drtychai.github.io/assets/img/35c3/filemanager-home.png)
 
 Let's create a file, paying close attentions to the how the request is sent to the server and how it's displayed back to us.  
-![signup](/Users/justin/website/drtychai.github.io/assets/img/35c3/filemanager-home-with-file.png)
+![home2](https://drtychai.github.io/assets/img/35c3/filemanager-home-with-file.png)
 
 Visiting this file:  
-![signup](/Users/justin/website/drtychai.github.io/assets/img/35c3/filemanager-file-contents.png)
+![readfile](https://drtychai.github.io/assets/img/35c3/filemanager-file-contents.png)
 
 It looks like the file is just being displayed directly back to us, but wait:  
-![signup](/Users/justin/website/drtychai.github.io/assets/img/35c3/filemanager-read-sourcecode.png)
+![sourcecode](https://drtychai.github.io/assets/img/35c3/filemanager-read-sourcecode.png)
 
 Our content is within `<pre>` tags.
 
