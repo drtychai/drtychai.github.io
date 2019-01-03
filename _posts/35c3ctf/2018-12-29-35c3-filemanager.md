@@ -166,6 +166,7 @@ Places for User Input:
 
 Two segments of JS stand out as important. The code for the `/create` page:
 ```js
+<script>
   function doSubmit(e) {
     e.preventDefault();
     document.getElementById('submit-button').disabled = true;
@@ -192,6 +193,7 @@ Two segments of JS stand out as important. The code for the `/create` page:
 
   var form = document.getElementById('create-form');
   form.addEventListener("submit", doSubmit);
+</script>
 ```
 
 and the code for the `/search` function:
@@ -211,10 +213,10 @@ both found in the HTML source.
 
 ## Our Approach
 With all our enumeration complete, we came up with the following plan:
-1. Make admin visit a page on a VPS
-2. Do CSRF to upload XSS file
-3. Redirect to search page
-4. Profit
+  1. Make admin visit a page on a VPS
+  2. Do CSRF to upload XSS file
+  3. Redirect to search page
+  4. Profit
 
 We were able to successfully find a stored self-XXS by hex encoding and uploading the following:
 
