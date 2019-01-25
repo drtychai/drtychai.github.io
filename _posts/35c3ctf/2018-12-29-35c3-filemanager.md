@@ -213,10 +213,10 @@ both found in the HTML source.
 
 ## Our Approach
 With all our enumeration complete, we came up with the following plan:
-  1. Make admin visit a page on a VPS
-  2. Do CSRF to upload XSS file
-  3. Redirect to search page
-  4. Profit
+    1. Make admin visit a page on a VPS
+    2. Do CSRF to upload XSS file
+    3. Redirect to search page
+    4. Profit
 
 We were able to successfully find a stored self-XXS by hex encoding and uploading the following:
 
@@ -227,6 +227,5 @@ We were able to successfully find a stored self-XXS by hex encoding and uploadin
 ![xss](https://drtychai.github.io/assets/img/35c3/filemanager-xss.png)
 
 The one caveat of our plan - we couldn't find a way around was the `XSRF : 1` HTTP Header in the POST request to `/create`.
-
 
 ## Solution
