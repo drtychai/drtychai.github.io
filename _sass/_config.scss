@@ -1,6 +1,6 @@
 // COLORS
 $color-black: #272727;
-$color-white: #efefef;
+$color-white: #FFFFFF;
 $color-grey: #EEEEEE;
 $color-link: #1A0DAB;
 $color-code: #00FF00;
@@ -12,3 +12,7 @@ $color-hire-shadow: rgba(0, 0, 0, 0.2);
 
 // BREAKPOINTS
 $br: 600px;
+
+body {
+		 background-color: #efefef;
+}
