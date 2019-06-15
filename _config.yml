@@ -1,17 +1,14 @@
 # Blog settings
 permalink: /blog/:categories/:title
 
-
 # My variables
 name: Writeups
 description: drtychai's personal blog - security research, CTFs, and tools
 google_verification: null
 
-
 # File management
 include: [".htaccess"]
 exclude: ["README.md", "LICENSE"]
-
 
 # Sass
 sass:
@@ -28,3 +25,12 @@ kramdown:
 # Plugins
 plugins:
   - jemoji
+
+colors:
+  black:     '#111111'
+  white:     '#f8f8f8'
+  blue:      '#49a7e9'
+  green:     '#9bcf2f'
+  purple:    '#c869bf'
+  orange:    '#fab125'
+  turquoise: '#0fbfcf'
