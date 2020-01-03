@@ -2,7 +2,7 @@
 permalink: /blog/:categories/:title
 
 # My variables
-name: > root@bynx
+name: \#root@bynx
 description: bynx's personal blog - security research, CTFs, and tools
 google_verification: null
 
