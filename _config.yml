@@ -2,8 +2,8 @@
 permalink: /blog/:categories/:title
 
 # My variables
-name: Writeups
-description: drtychai's personal blog - security research, CTFs, and tools
+name: > root@bynx
+description: bynx's personal blog - security research, CTFs, and tools
 google_verification: null
 
 # File management
