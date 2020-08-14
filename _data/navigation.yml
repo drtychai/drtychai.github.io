@@ -4,5 +4,11 @@
 - title: turbolizer
   url: /turbolizer
 
+- title: kt.gy
+  url: /tools
+
+- title: pubkey
+  url: /key.pub
+
 - title: github
   url: https://github.com/drtychai

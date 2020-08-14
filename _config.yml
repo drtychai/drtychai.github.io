@@ -1,5 +1,5 @@
 # Blog settings
-permalink: /blog/:categories/:title
+permalink: /blog/:categories/:tools/:title
 
 # My variables
 name: \#root@bynx
@@ -8,12 +8,12 @@ google_verification: null
 
 # File management
 include: [".htaccess"]
-exclude: ["README.md", "LICENSE"]
+exclude: ["README.md", "LICENSE", "package.json", "Gemfile"]
 
 # Sass
-sass:
-  style: :compressed
-  sass_dir: _sass
+#sass:
+#  style: :compressed
+#  sass_dir: _sass
 
 # Markdown
 markdown: kramdown
@@ -26,11 +26,11 @@ kramdown:
 plugins:
   - jemoji
 
-colors:
-  black:     '#111111'
-  white:     '#000000'
-  blue:      '#49a7e9'
-  green:     '#9bcf2f'
-  purple:    '#c869bf'
-  orange:    '#fab125'
-  turquoise: '#0fbfcf'
+#colors:
+#  black:     '#111111'
+#  white:     '#000000'
+#  blue:      '#49a7e9'
+#  green:     '#9bcf2f'
+#  purple:    '#c869bf'
+#  orange:    '#fab125'
+#  turquoise: '#0fbfcf'
