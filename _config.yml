@@ -6,6 +6,11 @@ name: \#root@bynx
 description: bynx's personal blog - security research, CTFs, and tools
 google_verification: null
 
+# UI config
+theme: jekyll-text-theme # Gem-based Jekyll Themes
+text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
+highlight_theme: "tomorrow-night"
+
 # File management
 include: [".htaccess"]
 exclude: ["README.md", "LICENSE", "package.json", "package-lock.json", "Gemfile", "Gemfile.lock"]
@@ -25,12 +30,3 @@ kramdown:
 # Plugins
 plugins:
   - jemoji
-
-colors:
-  black:     '#111111'
-  white:     '#000000'
-  blue:      '#49a7e9'
-  green:     '#9bcf2f'
-  purple:    '#c869bf'
-  orange:    '#fab125'
-  turquoise: '#0fbfcf'
