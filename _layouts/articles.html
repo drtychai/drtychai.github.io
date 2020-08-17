@@ -36,6 +36,16 @@ layout: page
   <div class="layout--articles">
 
     {%- if _type == 'grid' -%}
+      {% for post in site.posts %}
+        <li>
+            <span class="date">
+                {{ post.date | date: '%Y %b %d' }}
+            </span> -
+            <a href="{{ post.url }}">{{ post.category | replace:'-',' ' }} / {{ post.title }}</a>
+        </li>
+      {% endfor %}
+
+
       {%- if page.articles.size == 'sm' -%}
         {%- include article-list.html articles=_articles type='grid' size='sm' -%}
       {%- else -%}
