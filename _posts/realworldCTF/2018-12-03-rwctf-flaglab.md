@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: flaglab
 category: Real-World-CTF-Finals-2018
 ---
