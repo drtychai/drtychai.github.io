@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: article
 title: filemanager
 category: 35c3ctf
 ---
