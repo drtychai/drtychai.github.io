@@ -1,6 +1,6 @@
 ---
 layout: article
-title: flaglab
+title: RealWorldCTF - flaglab
 category: Real-World-CTF-Finals-2018
 ---
 

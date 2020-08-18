@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Magic Tunnel
+title: RealWorldCTF - Magic Tunnel
 category: Real-World-CTF-Finals-2018
 ---
 
