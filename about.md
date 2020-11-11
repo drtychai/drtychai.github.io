@@ -26,4 +26,4 @@ titles:
 key: page-about
 ---
 
-My name is J, a.k.a bynx. I play with [OpenToAll](https://opentoallctf.github.io/).
+I'm bynx; pwning browsers and `cat`ing flags (with [OpenToAll](https://opentoallctf.github.io/)).
