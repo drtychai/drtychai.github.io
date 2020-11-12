@@ -4,7 +4,7 @@ text_skin: dark
 highlight_theme: tomorrow-night
 url     : # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : # bynx.io
+title   : bynx.io
 description: #Research ramblings, Rust tools, CTFs
 
 ## => Language and Timezone
