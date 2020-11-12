@@ -11,7 +11,6 @@ titles:
 key: page-projects
 ---
 
-## Author
 - [ankou](https://github.com/drtychai/ankou): (WIP)
 
   - "Eternal" observer of interesting security bugs and issues raised for modern browser engines
