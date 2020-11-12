@@ -11,7 +11,6 @@ titles:
 key: page-projects
 ---
 
-# Projects
 ## Author
 
 - [ankou](https://github.com/drtychai/ankou): (WIP)
