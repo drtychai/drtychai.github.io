@@ -1,4 +1,4 @@
-<footer class="footer py-4 js-page-footer">
+<footer class="footer py-4 js-page-footer" {%- if include.background -%} style="background: {{ include.background }};" {%- endif -%} >
   <div class="main">
 
     {%- assign _site_author = site.author -%}
