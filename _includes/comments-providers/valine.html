@@ -13,7 +13,7 @@
 
 <div id="vcomments"></div>
 
-{%- if _VALINE_VISITOR -%}    
+{%- if _VALINE_VISITOR -%}
 <span id="{{page.url}}" class="leancloud-visitors" data-flag-title={{page.title}}>
 </span>
 {%- endif -%}
@@ -32,7 +32,7 @@
     {%- assign _page_lang_slice =  page.lang | slice: 0, 2 -%}
     {%- if _page_lang_slice != 'zh'  -%}
       _config.lang = 'en';
-    {%- endif -%}  
+    {%- endif -%}
     {%- if _VALINE_VISITOR -%}
       _config.visitor = 'true';
     {%- endif -%}

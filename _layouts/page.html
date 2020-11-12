@@ -71,13 +71,7 @@ layout: base
       {%- if _header != false -%}
         <div class="page__header d-print-none">
         {%- assign _header_theme = page.header.theme | default: layout.header.theme -%}
-        {%- if _header_theme == 'dark'-%}
-          {%- include header.html theme='dark' background=page.header.background -%}
-        {%- elsif _header_theme == 'light' -%}
-          {%- include header.html theme='light' background=page.header.background -%}
-        {%- else -%}
-          {%- include header.html -%}
-        {%- endif -%}
+        {%- include header.html theme='dark' background=page.header.background -%}
         </div>
       {%- endif -%}
 
@@ -122,26 +116,11 @@ layout: base
             {%- endif -%}
 
             <div class="article__header--overlay">
-
-            {%- if _article_header_theme == 'light' -%}
-              {%- if _article_header_align == 'center' -%}
-                <div class="hero hero--center hero--light overlay" style="{{ _header_style }}">
-              {%- else -%}
-                <div class="hero hero--light overlay" style="{{ _header_style }}">
-              {%- endif -%}
-            {%- elsif _article_header_theme == 'dark' -%}
               {%- if _article_header_align == 'center' -%}
                 <div class="hero hero--center hero--dark overlay" style="{{ _header_style }}">
               {%- else -%}
                 <div class="hero hero--dark overlay" style="{{ _header_style }}">
               {%- endif -%}
-            {%- else -%}
-              {%- if _article_header_align == 'center' -%}
-                <div class="hero hero--center overlay" style="{{ _header_style }}">
-              {%- else -%}
-                <div class="hero overlay" style="{{ _header_style }}">
-              {%- endif -%}
-            {%- endif -%}
                 <div class="hero__content">
                   {%- if _full_width == false -%}
                     <div class ="main">
@@ -182,7 +161,6 @@ layout: base
           <div class ="main">
         {%- endif -%}
             <div class="grid grid--reverse">
-
               <div class="col-aside d-print-none js-col-aside">
                 {%- if page.aside -%}
                   <aside class="page__aside js-page-aside">
@@ -192,7 +170,6 @@ layout: base
               </div>
 
               <div class="col-main cell cell--auto">
-                {%- include main/top/custom.html -%}
                 {%- if _page_type == 'article' -%}
                   <article itemscope itemtype="http://schema.org/Article">
                 {%- elsif _page_type == 'webpage' -%}
@@ -214,7 +191,6 @@ layout: base
                       <section class="page__comments d-print-none">{%- include comments.html -%}</section>
                     {%- endif -%}
                 </article>
-                {%- include main/bottom/custom.html -%}
               </div>
             </div>
 
