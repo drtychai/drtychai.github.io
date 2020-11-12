@@ -1,17 +1,10 @@
 ---
 layout: article
-titles:
-  # @start locale config
-  en      : &EN      
-  en-GB   : *EN
-  en-US   : *EN
-  en-CA   : *EN
-  en-AU   : *EN
-  # @end locale config
+title: Projects
 key: page-projects
 ---
 
-## Author
+# Author
 
 - [ankou](https://github.com/drtychai/ankou): (WIP)
 
@@ -51,7 +44,7 @@ key: page-projects
 [jsc]: https://github.com/WebKit/webkit/tree/master/Source/JavaScriptCore
 [wk-src]: https://github.com/WebKit/webkit
 
-## Contributor
+# Contributor
 - [browser-pwn](https://github.com/m1ghtym0/browser-pwn)
 - [Fuzzilli](https://github.com/googleprojectzero/fuzzilli)
 - [Firecracker Micro VM](https://github.com/firecracker-microvm/firecracker)
