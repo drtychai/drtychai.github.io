@@ -2,7 +2,7 @@
 layout: article
 titles:
   # @start locale config
-  en      : &EN       Projects
+  en      : &EN      
   en-GB   : *EN
   en-US   : *EN
   en-CA   : *EN
@@ -11,6 +11,7 @@ titles:
 key: page-projects
 ---
 
+# Projects
 ## Author
 
 - [ankou](https://github.com/drtychai/ankou): (WIP)
