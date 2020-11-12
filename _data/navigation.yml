@@ -37,7 +37,7 @@ header:
       en-CA   : *EN
       en-AU   : *EN
       # @end locale config
-    url: https://github.com/research
+    url: https://github.com/drtychai/research
 
   - titles:
       # @start locale config
