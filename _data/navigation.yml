@@ -11,6 +11,16 @@ header:
 
   - titles:
       # @start locale config
+      en      : &EN       Github
+      en-GB   : *EN
+      en-US   : *EN
+      en-CA   : *EN
+      en-AU   : *EN
+      # @end locale config
+    url: https://github.com/drtychai
+
+  - titles:
+      # @start locale config
       en      : &EN       About
       en-GB   : *EN
       en-US   : *EN
