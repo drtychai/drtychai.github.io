@@ -45,7 +45,7 @@ key: page-projects
 
 ## Contributor
 - [browser-pwn](https://github.com/m1ghtym0/browser-pwn)
-- [Chalk](https://github.com/rust-lang/chalk) (WIP)
+- [chalk](https://github.com/rust-lang/chalk)
 - [Fuzzilli](https://github.com/googleprojectzero/fuzzilli)
 - [Firecracker Micro VM](https://github.com/firecracker-microvm/firecracker)
 - [js-vuln-db](https://github.com/tunz/js-vuln-db)
