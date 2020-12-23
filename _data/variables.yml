@@ -42,7 +42,7 @@ default:
 sources:
   unpkg:
     jquery: 'https://unpkg.com/jquery@3.3.1/dist/jquery.min.js'
-        #font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'
+    font_awesome: 'https://use.fontawesome.com/releases/v5.0.13/css/all.css'
         #leancloud_js_sdk: '//cdn.jsdelivr.net/npm/leancloud-storage@3.13.2/dist/av-min.js'
         #chart: 'https://unpkg.com/chart.js@2.7.2/dist/Chart.min.js'
         #gitalk:
