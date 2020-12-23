@@ -75,7 +75,7 @@ paginate_path: /page:num # don't change this unless for special need
 
 ## => Sources
 ##############################
-sources: #unpkg
+sources: unpkg
 
 
 ## => Sharing
