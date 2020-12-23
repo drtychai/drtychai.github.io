@@ -3,7 +3,6 @@
       <div class="header__title">
         <div class="header__brand">
           {%- include svg/logo.svg -%}
-          {%- include svg/coffin.svg -%}
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}
@@ -13,6 +12,7 @@
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
         {%- endif -%}
+        {%- include svg/coffin.svg -%}
       </div>
       {%- if site.data.navigation.header -%}
       <nav class="navigation">
