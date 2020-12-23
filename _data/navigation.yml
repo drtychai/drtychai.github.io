@@ -20,19 +20,15 @@ header:
     url: /projects.html
 
 
-  - titles:
-      # @start locale config
-      en      : &EN      <link rel="icon" type="image/png" sizes="64x64" href="asserts/rip.png"> 
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      # @end locale config
-    url: https://pwn.browser.rip
-
-
-
-
+        #  - titles:
+        #      # @start locale config
+        #      en      : &EN      <img src="asserts/rip.png"/> 
+        #      en-GB   : *EN
+        #      en-US   : *EN
+        #      en-CA   : *EN
+        #      en-AU   : *EN
+        #      # @end locale config
+        #    url: https://pwn.browser.rip
 
   - titles:
       # @start locale config
