@@ -2,13 +2,13 @@
     <div class="main">
       <div class="header__title">
         <div class="header__brand">
+          {%- include svg/coffin.svg -%}
           {%- include svg/logo.svg -%}
           {%- assign _paths_root = site.paths.root | default: site.data.variables.default.paths.root  -%}
           {%- include snippets/get-nav-url.html path=_paths_root -%}
           {%- if site.title -%}
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
-          {%- include snippets/image.html file="svg/coffin.svg" url="https://pwn.browser.rip" max-width="200px" -%}
         </div>
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
@@ -33,6 +33,8 @@
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
           {%- endif -%}
+
+          <li>{%- include svg/coffin.svg -%}</li>
         </ul>
       </nav>
       {%- endif -%}
