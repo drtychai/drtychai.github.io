@@ -8,6 +8,7 @@
           {%- if site.title -%}
             <a title="{%- if site.description -%}{{ site.description }}{%- endif -%}" href="{{ __return }}">{{ site.title }}</a>
           {%- endif -%}
+          {%- include snippets/image.html file="svg/coffin.svg" url="https://pwn.browser.rip" max-width="200px" -%}
         </div>
         {%- if site.search.provider -%}
           <button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button>
@@ -32,7 +33,6 @@
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
           {%- endif -%}
-            <li>{%- include snippets/image.html file="svg/coffin.svg" url="https://pwn.browser.rip" max-width="200px" -%}</li>
         </ul>
       </nav>
       {%- endif -%}
