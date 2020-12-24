@@ -1,3 +1,5 @@
 <a href="{{ include.url }}">
-<object type="image/svg+xml" data="{{ include.file }}" width="{{ include.max-width }}" height="300"> </object>
+{%- if include.file -%}
+{%- include {{ include.file }} -%}
+{%- endif -%}
 </a>
