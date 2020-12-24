@@ -32,8 +32,10 @@
           {%- if site.search.provider -%}
             <li><button class="button button--secondary button--circle search-button js-search-toggle"><i class="fas fa-search"></i></button></li>
           {%- endif -%}
+          <li>
+           {%- include svg/coffin.svg url="https://pwn.browser.rip" max-width="200px" -%}
+          </li>
         </ul>
-        {%- include svg/coffin.svg url="https://pwn.browser.rip" -%}
       </nav>
       {%- endif -%}
     </div>
