@@ -4,7 +4,7 @@ article {
   margin-left: auto;
   margin-right: auto;
 
-  width: 45em;
+  width: 65em;
 }
 
 @media screen and (max-width: 50em) {
