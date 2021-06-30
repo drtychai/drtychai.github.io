@@ -1,16 +1,41 @@
----
-layout: page
-titles:
----
+<!DOCTYPE html>
+<html>
 
-<div class="layout--home js-all">
-  <div class="js-result layout--home__result d-none">
-    {%- include article-list.html articles=site.posts type='brief' show_info=true reverse=true group_by='year' -%}
-  </div>
-</div>
+<head>
 
-<script>
-  {%- include scripts/home.js -%}
-</script>
+<meta charset="utf-8">
+
+<!--<title>{{ page.title }}</title>-->
+<title>{{ page.tabtitle }}</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<meta name="viewport" content="initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Serif+Pro&display=swap">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+
+<link rel="stylesheet" href="/common.css">
+<link rel="stylesheet" href="/home.css">
+
+</head>
+
+<body>
+
+<article>
 
 {{ content }}
+
+<hr>
+
+<footer>
+<p>{{ page.copyright }}</p>
+{{ page.footer }}
+</footer>
+
+</article>
+</body>
+</html>

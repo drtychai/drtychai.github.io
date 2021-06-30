@@ -1,0 +1,18 @@
+name: Test build
+
+on: [ push ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@2036a08e25fa78bbd946711a407b529a0a1204bf
+    - name: Install Ruby
+      uses: eregon/use-ruby-action@f117ca04d86e4ea2ddb6c33076de6028df76da23
+    - name: Install
+      run: bundle install
+    - name: Check
+      run: bundle exec checklinks --config .checklinks.yaml **.md
+    - name: Build
+      run: bundle exec jekyll build
